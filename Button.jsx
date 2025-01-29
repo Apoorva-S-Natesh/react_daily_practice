@@ -1,25 +1,31 @@
 import React from "react";
-import './btnStyle.css';
 
-export default function Button() {
-	let count = 0;
-	var increase = () => {
-		count++;
-		alert(count);//updated in memory but react wont re-render the Button component
+function Button({count, setCount}) {
+	//let count = 0;
+	const increase = (event) => {
+		event.preventDefault();
+		//count++;
+		//alert(count);//updated in memory but react wont re-render the Button component
+		setCount(count + 1);
 	}
-	var decrease = () => {
-		count--;
+	const decrease = (event) => {
+		event.preventDefault();
+		//count--;
+		setCount(count - 1);
 	}
-	var reset = () => count = 0
+	var reset = (event) => {
+		event.preventDefault();
+		setCount(0);
+	}
 	return (
-		<div>
+		<>
 		<h3>{count}</h3>
-			<button onClick={increase}>+</button>
-			<button onClick={decrease}>-</button>
-			<button onClick={reset}>Reset</button>
-		</div>
-	)
+		<button onClick={(event) => increase(event)}>+</button>
+		<button onClick={(event) => decrease(event)}>-</button>
+		<button onClick={(event) => reset(event)}>Reset</button>
+		</>
+	);
 }
-
+export default Button;
 //this above code updates the count when we click on + or - but it dosent change the count on frontend. 
 // for this we need to use state variables!
