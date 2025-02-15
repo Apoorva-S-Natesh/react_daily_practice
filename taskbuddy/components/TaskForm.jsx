@@ -9,6 +9,10 @@ export default function TaskForm({addTask}) {
 	 const handleSubmit = (e) => {
 		e.preventDefault();
 		addTask({text:task, priority, category, completed:false}) //send data to addTask Method
+
+		setPriority('Medium');
+		setCategory('General');
+		setTask('');
 	 }
 
 	return (

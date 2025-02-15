@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import TaskForm  from './components/TaskForm';
 import TaskList from './components/TaskList';
+import ProgressTracker from './components/ProgressTracker';
 import './components/Style.css' 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
 			</div>
 		</header>
 	    <TaskForm addTask={addTask}/>
+		<ProgressTracker tasks={tasks}/>
 		<TaskList tasks={tasks} updateTask={updateTask} deleteTask={deleteTask}/>
     </div>
   )
